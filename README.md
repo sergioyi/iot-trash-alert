@@ -201,3 +201,15 @@ Se já instalou o psycopg2-binary, não precisa se preocupar com o PG_CONFIG, po
 
 
 https://chatgpt.com/share/673e44d2-5fa4-8011-ae06-76d1b4d950a3
+
+#   Segundo commit comandos
+Intalação do mqtt:
+
+```shell
+pip install paho-mqtt
+
+```
+Iniciar a aplicação:
+```shell
+python manage.py start_mqtt
+```
