@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <title>Mensagens MQTT</title>
 </head>
+
 <body>
     <h1>Mensagens Recebidas</h1>
     <ul>
         {% for mensagem in mensagens %}
-            <li>{{ mensagem.created_at }} - {{ mensagem.mensagem }}</li>
+        <li>
+            {{ mensagem.created_at|date:"d/m/Y" }} às {{ mensagem.created_at|date:"H:i" }} -
+            {% if mensagem.mensagem %}
+            A lixeira está cheia
+            {% else %}
+            A lixeira está vazia
+            {% endif %}
+        </li>
         {% empty %}
-            <li>Nenhuma mensagem recebida ainda.</li>
+        <li>Nenhuma mensagem recebida ainda.</li>
         {% endfor %}
     </ul>
+
+    <style>
+        * {
+            font-family: "Poppins", sans-serif;
+            background-color: #F3FEC4;
+        }
+
+        h1 {
+            font-family: "Poppins", serif;
+            font-weight: 800;
+            font-style: normal;
+        }
+    </style>
 </body>
+
 </html>
